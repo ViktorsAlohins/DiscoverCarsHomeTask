@@ -25,7 +25,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>javax.xml.bind</groupId>
 			<artifactId>jaxb-api</artifactId>
@@ -42,15 +41,11 @@
 			<artifactId>jaxb-runtime</artifactId>
 			<version>4.0.2</version>
 		</dependency>
-=======
-
->>>>>>> a5aa195 (Creating simple application that makes HTTP request and returns "Hello World" in 3 different formats - HTTP, Json or XML)
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-<<<<<<< HEAD
 		<dependency>
 			<groupId>javax.servlet</groupId>
 			<artifactId>javax.servlet-api</artifactId>
@@ -58,10 +53,6 @@
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
-=======
-	</dependencies>
-
->>>>>>> a5aa195 (Creating simple application that makes HTTP request and returns "Hello World" in 3 different formats - HTTP, Json or XML)
 	<build>
 		<plugins>
 			<plugin>
@@ -70,5 +61,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>
