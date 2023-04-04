@@ -1,5 +1,6 @@
 package com.discovercarshometask.DiscoverCarsHomeTask.Controller;
 
+import com.discovercarshometask.DiscoverCarsHomeTask.Model.MessageWrapper;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.MediaType;
@@ -62,20 +63,4 @@ public class EnvironmentController {
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(xmlOutput);
     }
 
-    private static class MessageWrapper {
-        private String message;
-
-        public MessageWrapper(String message) {
-            this.message = message;
-        }
-
-        public String getMessage() {
-            return message;
-        }
-
-        public void setMessage(String message) {
-            this.message = message;
-        }
-    }
 }
-
