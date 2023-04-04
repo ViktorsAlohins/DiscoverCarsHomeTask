@@ -1,13 +1,5 @@
 package com.discovercarshometask.DiscoverCarsHomeTask.Controller;
 
-import com.discovercarshometask.DiscoverCarsHomeTask.Model.PostBodyWrapper;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.xml.bind.JAXBContext;
-import jakarta.xml.bind.JAXBException;
-import jakarta.xml.bind.Marshaller;
-import jakarta.xml.bind.Unmarshaller;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
@@ -53,43 +45,5 @@ public class PostController {
 
         html.append("</table></body></html>");
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(html.toString());
-    }
-
-    private ResponseEntity<String> generateJsonOutput(MultiValueMap<String, String> postBody) {
-        PostBodyWrapper postBodyWrapper = new PostBodyWrapper(postBody.toSingleValueMap());
-        ObjectMapper objectMapper = new ObjectMapper();
-
-        try {
-            String jsonOutput = objectMapper.writeValueAsString(postBodyWrapper);
-            return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(jsonOutput);
-        } catch (JsonProcessingException e) {
-            return ResponseEntity.status(500).contentType(MediaType.TEXT_PLAIN).body("Error generating JSON output.");
-        }
-    }
-
-    private ResponseEntity<String> generateXmlOutput(MultiValueMap<String, String> postBody) {
-        PostBodyWrapper postBodyWrapper = new PostBodyWrapper(postBody.toSingleValueMap());
-
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            String jsonInput = objectMapper.writeValueAsString(postBodyWrapper);
-
-            JAXBContext jaxbContext = JAXBContext.newInstance(PostBodyWrapper.class);
-            Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            StringReader stringReader = new StringReader(jsonInput);
-            PostBodyWrapper postBodyWrapperResult = (PostBodyWrapper) unmarshaller.unmarshal(stringReader);
-
-            Marshaller marshaller = jaxbContext.createMarshaller();
-            marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-
-            StringWriter stringWriter = new StringWriter();
-            marshaller.marshal(postBodyWrapperResult, stringWriter);
-            String xmlOutput = stringWriter.toString();
-
-            return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(xmlOutput);
-        } catch (JAXBException | JsonProcessingException e) {
-            log.error("Exception while generating XML output: {}", e.getMessage(), e);
-            return ResponseEntity.status(500).contentType(MediaType.TEXT_PLAIN).body("Error generating XML output.");
-        }
     }
 }
