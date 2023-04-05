@@ -17,14 +17,14 @@ public class PostController {
             case "html":
                 return generateHtmlOutput(postBody);
             default:
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Format now allowed.");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Format not allowed.");
         }
     }
 
     private ResponseEntity<String> generateHtmlOutput(MultiValueMap<String, String> postBody) {
-        StringBuilder output = new StringBuilder("<html><body><h1>Post Request Body:</h1><ul>");
+        StringBuilder output = new StringBuilder("<html>");
         postBody.forEach((key, value) -> output.append("<li>").append(key).append(": ").append(value).append("</li>"));
-        output.append("</ul></body></html>");
+        output.append("</html>");
         return ResponseEntity.ok().contentType(MediaType.TEXT_HTML).body(output.toString());
     }
 }
