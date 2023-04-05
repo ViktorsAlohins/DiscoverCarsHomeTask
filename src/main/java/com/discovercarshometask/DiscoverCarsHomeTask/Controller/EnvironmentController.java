@@ -42,7 +42,7 @@ public class EnvironmentController {
     }
 
     private ResponseEntity<String> generateXmlOutput(String message) {
-        String xmlOutput = String.format("<xml><message>%s</message>", message);
+        String xmlOutput = String.format("<message>%s</message>", message);
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_XML).body(xmlOutput);
     }
 }

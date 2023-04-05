@@ -17,7 +17,7 @@ public class PostController {
             case "html":
                 return generateHtmlOutput(postBody);
             default:
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Format now allowed.");
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Format not allowed.");
         }
     }
 
