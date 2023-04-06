@@ -4,6 +4,8 @@ services:
     image: discover-cars
     ports:
       - "3000:3000"
+    depends_on:
+      - db
   proxy:
     build:
       context: .
@@ -12,3 +14,14 @@ services:
       - "8080:80"
     depends_on:
       - web
+  db:
+    image: postgres:14.1
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: demo
+      POSTGRES_DB: discover_cars_home_task
+    volumes:
+      - db-data:/var/lib/postgresql/data
+
+volumes:
+  db-data:
