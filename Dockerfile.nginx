@@ -1,0 +1,10 @@
+# Dockerfile.nginx
+
+# Base image
+FROM nginx:stable
+
+# Copy the configuration file
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copy the .htpasswd file
+COPY .htpasswd /etc/nginx/.htpasswd
