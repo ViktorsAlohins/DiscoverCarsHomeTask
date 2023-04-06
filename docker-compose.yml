@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  web:
+    image: discover-cars:v1
+    ports:
+      - "3000:3000"
