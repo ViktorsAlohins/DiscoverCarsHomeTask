@@ -4,3 +4,12 @@ services:
     image: discover-cars:v1
     ports:
       - "3000:3000"
+  proxy:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:80"
+    depends_on:
+      - web
+
