@@ -5,25 +5,20 @@ WORKDIR /app
 
 ENV JAVA_HOME /usr/local/openjdk-17
 
-COPY mvnw .
 COPY .mvn .mvn
-COPY entrypoint.sh .
-
-RUN chmod +x ./mvnw
-RUN chmod +x ./entrypoint.sh
-
 COPY src src
 COPY pom.xml .
 
-RUN ./entrypoint.sh
+RUN mvn clean install -DskipTests=true
+RUN mv /app/target/*.jar /app/app.jar
 
 # Stage 2: run the application
 FROM openjdk:17-jdk-slim
 
 WORKDIR /app
 
-COPY --from=build /app/target/DiscoverCarsHomeTask-0.0.1-SNAPSHOT.jar .
+COPY --from=build /app/app.jar .
 
 EXPOSE 3000
 
-CMD ["java", "-jar", "DiscoverCarsHomeTask-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "app.jar"]
