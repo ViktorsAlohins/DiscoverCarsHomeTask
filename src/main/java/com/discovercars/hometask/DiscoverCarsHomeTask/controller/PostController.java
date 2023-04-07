@@ -1,4 +1,4 @@
-package com.discovercarshometask.DiscoverCarsHomeTask.Controller;
+package com.discovercars.hometask.DiscoverCarsHomeTask.controller;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;

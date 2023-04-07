@@ -1,4 +1,4 @@
-package com.discovercarshometask.DiscoverCarsHomeTask.Model;
+package com.discovercars.hometask.DiscoverCarsHomeTask.model;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;

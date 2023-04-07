@@ -1,4 +1,4 @@
-package com.discovercarshometask.DiscoverCarsHomeTask.Model;
+package com.discovercars.hometask.DiscoverCarsHomeTask.model;
 
 import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.Map;

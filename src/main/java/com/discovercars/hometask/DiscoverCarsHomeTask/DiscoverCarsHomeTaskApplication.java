@@ -1,4 +1,4 @@
-package com.discovercarshometask.DiscoverCarsHomeTask;
+package com.discovercars.hometask.DiscoverCarsHomeTask;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

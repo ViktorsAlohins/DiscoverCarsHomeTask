@@ -1,4 +1,4 @@
-package com.discovercarshometask.DiscoverCarsHomeTask.Controller;
+package com.discovercars.hometask.DiscoverCarsHomeTask.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,7 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.discovercarshometask.DiscoverCarsHomeTask.Model.HeadersWrapper;;
+import com.discovercars.hometask.DiscoverCarsHomeTask.model.HeadersWrapper;;
 
 import jakarta.xml.bind.JAXBContext;
 import jakarta.xml.bind.JAXBException;
@@ -75,7 +75,7 @@ public class HeadersController {
         try {
             log.info("Headers Map: {}", headersMap);
 
-            JAXBContext jaxbContext = JAXBContext.newInstance(com.discovercarshometask.DiscoverCarsHomeTask.Model.HeadersWrapper.class);
+            JAXBContext jaxbContext = JAXBContext.newInstance(HeadersWrapper.class);
             Marshaller marshaller = jaxbContext.createMarshaller();
             marshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
 
